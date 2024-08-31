@@ -1,0 +1,17 @@
+name: Workflow Dispatch Test
+
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-20.04 # https://github.com/actions/runner-images/issues/6709#issuecomment-1361269639
+    steps:
+      # --------- use Python to install Python dependencies and run linter, tests, etc. ---------
+      - uses: actions/checkout@v4
+      - name: list files
+        run: ls -la
