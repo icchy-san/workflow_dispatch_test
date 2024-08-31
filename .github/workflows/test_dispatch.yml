@@ -2,12 +2,13 @@ name: Workflow Dispatch Test
 
 on:
   push:
-    branches:
-      - develop
   workflow_dispatch:
 
 jobs:
+  check:
+    uses: ./.github/workflows/test_call.yml
   deploy:
+    needs: [check]
     name: deploy
     runs-on: ubuntu-20.04 # https://github.com/actions/runner-images/issues/6709#issuecomment-1361269639
     steps:
