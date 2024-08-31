@@ -2,6 +2,9 @@ name: '[FrontEnd] Test on PR'
 
 on:
   push:
+    branches-ignore:
+      - 'main' # main ブランチを除外
+      - 'develop' # develop ブランチを除外
   workflow_call:
 
 jobs:
